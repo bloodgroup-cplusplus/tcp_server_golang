@@ -68,6 +68,9 @@ func (s *Server) readLoop(conn net.Conn) {
 			payload: buf[:n],
 		}
 		// write to channel so that we can read it when we want
+
+		// make it a duplex
+		conn.Write([]byte("Thank you for your message!"))
 	}
 
 }
